@@ -17,7 +17,7 @@ function getDetailMoives(id) {
             let [ detailMovieList, movieReviews, relatedMovies ] = await Promise.all([DetailMoviesApi, MovieReviews, RelatedMovies])
             console.log(detailMovieList.data)
             console.log(movieReviews.data.results)
-            console.log(relatedMovies.data.results)
+            console.log('여기확인', relatedMovies.data)
 
             dispatch({
                 type : "GET_MOVIE_DETAIL_SUCCESS",

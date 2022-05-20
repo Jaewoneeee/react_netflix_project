@@ -6,7 +6,7 @@ const Reviews = ({review}) => {
 
         {
             review.map((item, index)=>{
-                return <div key={index}>
+                return <div className="review" key={index}>
                     <h5>{item.author}</h5>
                     <p>{item.content}</p>
                 </div>

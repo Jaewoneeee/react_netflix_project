@@ -112,7 +112,7 @@ body {
 }
 
 .detailPageBottom {
-    width: 80vw;
+    width: 70vw;
     margin-top: 30px;
 }
 
@@ -125,4 +125,17 @@ body {
 .detailPageBottom-middle {
     display: flex;
     margin-bottom: 20px;
+}
+
+.detailPageBottom-middle-button {
+    margin-right: 20px;
+}
+
+.review {
+    margin: 20px;
+    border-bottom: 1px solid white;
+}
+
+.relatedMovies {
+    margin-bottom: 10px;
 }

@@ -19,6 +19,8 @@ const MovieDetail = () => {
     dispatch(movieDetailAction.getDetailMoives(id))
   },[]) 
 
+  console.log(relatedMovies)
+
   // 이거를 적용하면 계속 이것만 돌고있음 왜 그럴까?
   // if(loading){
   //   return <ClipLoader color='#ffff' loading={loading} size={150} />
@@ -29,12 +31,8 @@ const MovieDetail = () => {
   }
   console.log(showMore)
 
-  const changeTrue = () => {
-    setChange(true)
-  }
-
-  const changeFalse = () => {
-    setChange(false)
+  const changeReview = () => {
+    change ? setChange(false) : setChange(true)
   }
 
   return (
@@ -81,14 +79,29 @@ const MovieDetail = () => {
 
       <div className='detailPageBottom'>
         <div className='detailPageBottom-top'>
-          <Button onClick={()=>changeShowMore()} variant="danger">Show More</Button>
+          {
+          !showMore
+          ?<Button onClick={()=>changeShowMore()} variant="outline-danger">Show More</Button>
+          :<Button onClick={()=>changeShowMore()} variant="danger">Show More</Button>
+          }
         </div>
         {
           showMore === false ? null :
           <div>
             <div  className='detailPageBottom-middle'>
-              <Button onClick={()=>changeTrue()} variant="danger">REVIEWS</Button>  
-              <Button onClick={()=>changeFalse()} variant="danger">RELATED MOVIES</Button>
+              {
+                change
+                ?
+                <>
+                <Button className="detailPageBottom-middle-button" onClick={()=>changeReview()} variant="danger">REVIEWS ({movieReviews.length})</Button>  
+                <Button onClick={()=>changeReview()} variant="outline-danger">RELATED MOVIES ({relatedMovies.length})</Button>
+                </>
+                :
+                <>
+                <Button className="detailPageBottom-middle-button" onClick={()=>changeReview()} variant="outline-danger">REVIEWS ({movieReviews.length})</Button>  
+                <Button onClick={()=>changeReview()} variant="danger">RELATED MOVIES ({relatedMovies.length})</Button>
+                </>
+              }
             </div>
             <div className='detailPageBottom-bottom'>
               { change ? <Reviews review={movieReviews}/> : <RelatedMovies related={relatedMovies}/>}
