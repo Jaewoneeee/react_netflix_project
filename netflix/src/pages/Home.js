@@ -27,10 +27,13 @@ const Home = () => {
       {/* {popularMovies.results && <Banner movie={popularMovies.results[2]} />} */}
       {/* 위에 로딩스피너가 있기때문에 이제 조건부랜더링이 필요가 없다 */}
       <Banner movie={popularMovies.results[9]} />
+
       <h1>Popular Movie</h1>
       <MoiveSlide movies={popularMovies}/>
+
       <h1>Top rated Movie</h1>
       <MoiveSlide movies={topRatedMovies}/>
+      
       <h1>Upcoming Movie</h1>
       <MoiveSlide movies={upcomingMovies}/>
     </div>

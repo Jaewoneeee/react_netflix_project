@@ -26,13 +26,8 @@ const responsive = {
 const MoiveSlide = ({movies}) => {
     console.log(movies)
   return (
-    <div>
+    <div className='slide'>
         <Carousel responsive={responsive}>
-        {/* <div><MovieCard/></div>
-        <div><MovieCard/></div>
-        <div><MovieCard/></div>
-        <div><MovieCard/></div>
-        <div><MovieCard/></div> */}
         {
             movies.results.map( (item, index) => {
                 return <MovieCard key={index} item={item}/>
