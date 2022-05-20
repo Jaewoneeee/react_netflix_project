@@ -17,6 +17,7 @@ function getMovies() {
         // 각각의 API호출을 동시에 실행시키고, 위 세개가 다 올때까지 기다리는거
         let [ popularMovies, topRatedMovies, upcomingMovies ] = await Promise.all([popularMovieApi, topRatedApi, upcomingApi ])
         //console.log("Promise All 이후 : ", data)
+        console.log(popularMovies)
         console.log(popularMovies.data.results)
         console.log(topRatedMovies.data.results)
         console.log(upcomingMovies.data.results)

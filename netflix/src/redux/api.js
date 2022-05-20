@@ -7,10 +7,10 @@ const api = axios.create({
 
 // 요건 그냥 interceptor라는 기능을 추가하는거
 // Add a request interceptor
-api.interceptors.request.use(function (request) {
+api.interceptors.request.use(function (config) {
     // Do something before request is sent
-    console.log("request start", request)
-    return request;
+    console.log("request start", config)
+    return config;
   }, function (error) {
     // Do something with request error
     console.log("request error", error)
