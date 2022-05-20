@@ -55,7 +55,74 @@ body {
     opacity: 1;
 }
 
+.detailPage {
+    margin-left: 10vw;
+    margin-right: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+
+}
+
+.detailPageTop {
+    width: 80vw;
+    display: flex;
+}
+
 .detailPoster {
-    width: 300px;
-    height: 400px;
+    width: 30vw;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.detailInfo {
+    width: 50vw;
+}
+
+
+.detailInfo-1 {
+    margin-right: 20px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+.detailInfo-2 {
+    display: flex;
+    margin-top: 20px;
+    border-bottom: 1px solid white;
+}
+
+.detailInfo-2 h5{
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.detailInfo-3 {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid white;
+}
+
+.detailInfo-3 div{
+    margin-right: 50px;
+}
+
+.detailPageBottom {
+    width: 80vw;
+    margin-top: 30px;
+}
+
+.detailPageBottom-top {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.detailPageBottom-middle {
+    display: flex;
+    margin-bottom: 20px;
 }
