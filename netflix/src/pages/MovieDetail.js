@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 import { movieDetailAction } from '../redux/actions/movieDetailAction'
 import { Badge, Button } from 'react-bootstrap'
 import { Reviews, RelatedMovies } from '../components'
+import { faStar, faUserGroup } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ClipLoader from "react-spinners/ClipLoader";
 
 const MovieDetail = () => {
@@ -54,9 +56,9 @@ const MovieDetail = () => {
           <h1 style={{fontWeight : "bold"}}>{detailMovies.title}</h1>
           <h5>{detailMovies.tagline}</h5>
           <div className="detailInfo-2">
-            <h5>★ {detailMovies.vote_average}</h5>
-            <h5>▲ {detailMovies.popularity}</h5>
-            <h5 style={{color : 'red', fontWeight : "bold"}}>{detailMovies.adult ? "청불" : "under18" }</h5>
+            <h5><FontAwesomeIcon icon={faStar}/> {detailMovies.vote_average}</h5>
+            <h5><FontAwesomeIcon icon={faUserGroup}/> {detailMovies.popularity}</h5>
+            <h5 style={{color : 'red', fontWeight : "bold", fontStyle: 'italic'}}>{detailMovies.adult ? "청불" : "Under18" }</h5>
           </div>
           <div className="detailInfo-3">
             <p>{detailMovies.overview}</p>

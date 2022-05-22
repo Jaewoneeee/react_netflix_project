@@ -2,6 +2,8 @@ import React from 'react'
 import { Badge } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const MovieCard = ({item}) => {
 
@@ -30,8 +32,8 @@ const MovieCard = ({item}) => {
                 }
             </div>
             <div>
-                <span>★ : {item.vote_average} / </span>
-                <span>{item.adult ? "청불" : "under 18" }</span>
+                <span><FontAwesomeIcon icon={faStar}/> : {item.vote_average} / </span>
+                <span style={{color : 'red', fontWeight : "bold", fontStyle: 'italic'}}>{item.adult ? "청불" : "Under18" }</span>
             </div>
         </div>
         
