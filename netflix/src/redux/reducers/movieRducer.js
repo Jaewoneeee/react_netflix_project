@@ -6,6 +6,7 @@ let initialState = {
     detailMovies : '',
     movieReviews : [],
     relatedMovies : [],
+    trailer : '',
     loading : true
 }
 
@@ -31,7 +32,8 @@ function movieReducer(state=initialState,action) {
             return {...state, 
                 detailMovies : payload.detailMovies,
                 movieReviews : payload.movieReviews,
-                relatedMovies : payload.relatedMovies
+                relatedMovies : payload.relatedMovies,
+                trailer : payload.trailer
             }
 
         case "GET_MOVIES_FAILURE" :

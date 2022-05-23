@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { movieDetailAction } from '../redux/actions/movieDetailAction'
 import { Badge, Button } from 'react-bootstrap'
-import { Reviews, RelatedMovies } from '../components'
+import { Reviews, RelatedMovies, TrailerModal  } from '../components'
 import { faStar, faUserGroup } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ClipLoader from "react-spinners/ClipLoader";
@@ -14,8 +14,9 @@ const MovieDetail = () => {
 
   const [change, setChange] = useState(true)
   const [showMore, setShowMore] = useState(false)
+  const [modalShow, setModalShow] = useState(false);
   const dispatch = useDispatch()
-  const {detailMovies, movieReviews, relatedMovies, loading} = useSelector(state => state.movies)
+  const {detailMovies, movieReviews, relatedMovies, trailer, loading} = useSelector(state => state.movies)
 
   useEffect( () => {
     dispatch(movieDetailAction.getDetailMoives(id))
@@ -74,7 +75,21 @@ const MovieDetail = () => {
             </div>
           </div>
           <div>
-            Watch Trailer
+                {
+                  trailer === ''
+                  ? false
+                  :
+                <>
+                <Button variant="danger" onClick={() => setModalShow(true)}>
+                  Watch Trailer
+                </Button>
+                <TrailerModal
+                show={modalShow}
+                trailer={trailer}
+                onHide={() => setModalShow(false)}
+                />
+                </>
+                }
           </div>
         </div>
       </div>
