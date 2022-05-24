@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { movieAction } from '../redux/actions/movieAction'
 import { useDispatch, useSelector } from 'react-redux'
 import { MoviesPagenation } from '../components/';
+import { Container, Row, Col } from 'react-bootstrap'
 
 const Movies = () => {
 
@@ -20,16 +21,19 @@ const Movies = () => {
         여기가 분류
       </div>
       <div className='moviesRight'>
-        카드
-      {
-        popularMovies === ''
-        ? false
-        : popularMovies.results.map((item) => {
-            return <div>
-                <MoviesPagenation item={item}/>
-            </div>
-        })
-      }
+        <Container>
+          <Row>
+          { 
+            popularMovies === ''
+            ? false
+            : popularMovies.results.map((item) => {
+              return <Col xs={6}>
+                      <MoviesPagenation item={item}/>
+                    </Col>
+            })
+          }
+          </Row>
+        </Container>
           
       </div>
     </div>

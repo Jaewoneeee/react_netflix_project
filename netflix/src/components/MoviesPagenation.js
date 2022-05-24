@@ -20,22 +20,22 @@ const MoviesPagenation = ({item}) => {
   return (
     <div className='moviesCard'
         onClick={showDetail}
-        style={{backgroundImage :"url("+`https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path}`+")"}}>
-            
-            <h3>{item.title}</h3>
-            <div>
-                {
-                    item.genre_ids.map((id, index) => {
-                        return <Badge key={index} bg="danger">{genreList.find(item => item.id == id).name}</Badge>
-                    })
-                }
+        style={{backgroundImage :"url("+`https://www.themoviedb.org/t/p/w300_and_h450_multi_faces${item.poster_path}`+")"}}>
+            <div className='moviesCardContentBox'>
+                <h3>{item.title}</h3>
+                <div>{item.release_date}</div>
+                <div>
+                    {
+                        item.genre_ids.map((id, index) => {
+                            return <Badge key={index} bg="danger">{genreList.find(item => item.id == id).name}</Badge>
+                        })
+                    }
+                </div>
+                <div>
+                    <span><FontAwesomeIcon icon={faStar}/> : {item.vote_average} / </span>
+                    <span style={{color : 'red', fontWeight : "bold", fontStyle: 'italic'}}>{item.adult ? "청불" : "Under18" }</span>
+                </div>
             </div>
-            <div>
-                <span><FontAwesomeIcon icon={faStar}/> : {item.vote_average} / </span>
-                <span style={{color : 'red', fontWeight : "bold", fontStyle: 'italic'}}>{item.adult ? "청불" : "Under18" }</span>
-            </div>
-
-        
     </div>
   )
 }
