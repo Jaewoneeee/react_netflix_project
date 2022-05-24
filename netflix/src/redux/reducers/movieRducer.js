@@ -40,7 +40,8 @@ function movieReducer(state=initialState,action) {
 
         case "GET_SEARCH_MOVIE_SUCCESS" :
             return { ...state,
-                searchMovie : payload.searchMovie
+                searchMovie : payload.searchMovie,
+                loading : false
             }
 
         case "GET_MOVIES_FAILURE" :
