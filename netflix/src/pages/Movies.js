@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { movieAction } from '../redux/actions/movieAction'
 import { useDispatch, useSelector } from 'react-redux'
 import { MoviesPagenation } from '../components/';
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Dropdown } from 'react-bootstrap'
 
 const Movies = () => {
 
@@ -18,7 +18,17 @@ const Movies = () => {
   return (
     <div className='moviesPage'>
       <div className='moviesLeft'>
-        여기가 분류
+        <Dropdown className="d-inline mx-2" variant='dark'>
+          <Dropdown.Toggle id="dropdown-autoclose-true">
+            Default Dropdown
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu menuVariant='dark'>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       </div>
       <div className='moviesRight'>
         <Container>
