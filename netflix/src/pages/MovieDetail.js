@@ -83,11 +83,7 @@ const MovieDetail = () => {
                 <Button variant="danger" onClick={() => setModalShow(true)}>
                   Watch Trailer
                 </Button>
-                <TrailerModal
-                show={modalShow}
-                trailer={trailer}
-                onHide={() => setModalShow(false)}
-                />
+                <TrailerModal show={modalShow} trailer={trailer} onHide={() => setModalShow(false)}/>
                 </>
                 }
           </div>

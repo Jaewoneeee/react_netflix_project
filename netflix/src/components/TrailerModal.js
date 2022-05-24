@@ -11,7 +11,7 @@ const TrailerModal = (props) => {
     // console.log(test)
 
 
-  return (
+    return (
         <Modal
             {...props}
             size="lg"
@@ -19,13 +19,13 @@ const TrailerModal = (props) => {
             centered
         >
             <Modal.Body>
-                <YouTube videoId={props.trailer[0].key}/>
+                <YouTube videoId={props.trailer[0].key} className='youtube'/>
             </Modal.Body>
-            <Modal.Footer>
+            {/* <Modal.Footer>
             <Button variant="dark" onClick={props.onHide}>Close</Button>
-            </Modal.Footer>
+            </Modal.Footer> */}
         </Modal>
-  )
+    )
 }
 
 export default TrailerModal
