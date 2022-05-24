@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { movieAction } from '../redux/actions/movieAction'
 import { useDispatch, useSelector } from 'react-redux'
-import  MovieCard  from '../components/MovieCard';
+import { MoviesPagenation } from '../components/';
 
 const Movies = () => {
 
@@ -15,17 +15,23 @@ const Movies = () => {
   },[])
 
   return (
-    <div>
-     {
-       popularMovies === ''
-       ? false
-       : popularMovies.results.map((item) => {
-          return <div>
-              <MovieCard item={item}/>
-          </div>
-       })
-     }
-        
+    <div className='moviesPage'>
+      <div className='moviesLeft'>
+        여기가 분류
+      </div>
+      <div className='moviesRight'>
+        카드
+      {
+        popularMovies === ''
+        ? false
+        : popularMovies.results.map((item) => {
+            return <div>
+                <MoviesPagenation item={item}/>
+            </div>
+        })
+      }
+          
+      </div>
     </div>
   )
 }

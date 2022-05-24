@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Container ,Row, Col } from 'react-bootstrap' 
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -12,13 +12,10 @@ const RelatedMovies = ({related}) => {
     console.log("디테일",related[0].backdrop_path)
     console.log("디테일",related[0].id)
 
+
   const showDetail = (id) => {
     navigate(`/movies/${id}`)
   }
-
-  useEffect( () => {
-
-  }, [])
 
   return (
     <div>

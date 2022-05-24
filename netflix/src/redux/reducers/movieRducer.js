@@ -33,7 +33,8 @@ function movieReducer(state=initialState,action) {
                 detailMovies : payload.detailMovies,
                 movieReviews : payload.movieReviews,
                 relatedMovies : payload.relatedMovies,
-                trailer : payload.trailer
+                trailer : payload.trailer,
+                loading : false
             }
 
         case "GET_MOVIES_FAILURE" :

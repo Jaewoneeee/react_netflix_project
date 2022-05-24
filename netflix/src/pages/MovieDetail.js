@@ -20,14 +20,14 @@ const MovieDetail = () => {
 
   useEffect( () => {
     dispatch(movieDetailAction.getDetailMoives(id))
-  },[]) 
+  },[id]) 
 
   console.log(relatedMovies)
 
   // 이거를 적용하면 계속 이것만 돌고있음 왜 그럴까?
-  // if(loading){
-  //   return <ClipLoader color='#ffff' loading={loading} size={150} />
-  // }
+  if(loading){
+    return <ClipLoader color='#ffff' loading={loading} size={150} />
+  }
 
   const changeShowMore = () => {
     showMore === false ? setShowMore(true) : setShowMore(false)

@@ -17,7 +17,7 @@ function getDetailMoives(id) {
             const Trailer = api.get(`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`)
      
             let [ detailMovieList, movieReviews, relatedMovies, trailer ] = await Promise.all([DetailMoviesApi, MovieReviews, RelatedMovies, Trailer])
-            console.log(detailMovieList.data)
+            console.log("asdfasdfsad",detailMovieList.data)
             console.log(movieReviews.data.results)
             console.log('여기확인', relatedMovies.data)
             console.log('트레일러', trailer.data.results)

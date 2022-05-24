@@ -43,7 +43,6 @@ body {
     height: 200px;
 }
 
-
 .overlay {
     opacity: 0;
     background: rgba(43, 41, 41, 0.9);
@@ -143,4 +142,30 @@ body {
 .youtube {
     display: flex;
     justify-content: center;
+}
+
+.moviesPage {
+    margin-left: 15vw;
+    margin-right: 15vw;
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+    border: 1px solid white;
+}
+
+.moviesLeft {
+    width: 20vw;
+    margin: 20px;
+    border: 1px solid white;
+}
+
+.moviesRight {
+    width: 40vw;
+    margin: 20px;
+    border: 1px solid white;
+}
+
+.moviesCard {
+    width: 300px;
+    height: 400px;
 }
