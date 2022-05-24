@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const MoviesPagenation = ({item}) => {
+const MoviesPagination = ({item}) => {
 
     const { genreList } = useSelector((state) => state.movies)
     console.log(genreList)
@@ -40,4 +40,4 @@ const MoviesPagenation = ({item}) => {
   )
 }
 
-export default MoviesPagenation
+export default MoviesPagination

@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { searchAction } from '../redux/actions/searchAction' 
 
 const Navigation = () => {
+
+    const [search, setSearch] = useState('')
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate();
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        navigate("/searchpage")
+        dispatch(searchAction.getSearchMoives(search))
+    }
+
+    const changeSearch = (e) => {
+        setSearch(e.target.value)
+    }
+
   return (
     <Navbar bg="dark" expand="lg" variant='dark'>
         <Container fluid>
@@ -19,14 +36,15 @@ const Navigation = () => {
                 <Link to="/" className='nav-item'>Home</Link>
                 <Link to="/movies" className='nav-item'>Movies</Link>
             </Nav>
-            <Form className="d-flex">
+            <Form className="d-flex" onSubmit={handleSubmit}>
                 <FormControl
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
+                onChange={changeSearch}
                 />
-                <Button variant="danger">Search</Button>
+                <Button variant="danger" type='submit'>Search</Button>
             </Form>
             </Navbar.Collapse>
         </Container>

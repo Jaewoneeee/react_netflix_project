@@ -45,6 +45,7 @@ body {
 }
 
 .overlay {
+    padding: 20px;
     opacity: 0;
     background: rgba(43, 41, 41, 0.9);
     height: 100%;

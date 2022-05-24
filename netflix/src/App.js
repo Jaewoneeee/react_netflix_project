@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { Home, Movies, MovieDetail } from './pages'
+import { Home, Movies, MovieDetail, SearchPage } from './pages'
 import { Navigation } from './components'
 
 // 1. 3개페이지 필요. 홈페이지, movie페이지, movieDetail페이지
@@ -27,6 +27,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/movies' element={<Movies/>}/>
         <Route path='/movies/:id' element={<MovieDetail/>}/>
+        <Route path='/searchpage' element={<SearchPage/>}/>
       </Routes>
     </div>
   );

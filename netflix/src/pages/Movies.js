@@ -1,13 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { movieAction } from '../redux/actions/movieAction'
 import { useDispatch, useSelector } from 'react-redux'
-import { MoviesPagenation } from '../components/';
+import { MoviesPagination, PaginationBar } from '../components/';
 import { Container, Row, Col, Dropdown } from 'react-bootstrap'
+
 
 const Movies = () => {
 
   const dispatch = useDispatch()
   const { popularMovies } = useSelector(state => state.movies)
+
+  const [limit, setLimit] = useState(4);
+  const [page, setPage] = useState(1);
+  const offset = (page - 1) * limit;
 
   console.log(popularMovies)
 
@@ -18,17 +23,11 @@ const Movies = () => {
   return (
     <div className='moviesPage'>
       <div className='moviesLeft'>
-        <Dropdown className="d-inline mx-2" variant='dark'>
-          <Dropdown.Toggle id="dropdown-autoclose-true">
-            Default Dropdown
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu menuVariant='dark'>
-            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-            <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+        Sort
+        <br/>
+        Filter
+        <br/>
+        Genres
       </div>
       <div className='moviesRight'>
         <Container>
@@ -36,15 +35,20 @@ const Movies = () => {
           { 
             popularMovies === ''
             ? false
-            : popularMovies.results.map((item) => {
+            : popularMovies.results.slice(offset, offset + limit).map((item) => {
               return <Col xs={6}>
-                      <MoviesPagenation item={item}/>
+                      <MoviesPagination item={item}/>
                     </Col>
             })
           }
           </Row>
         </Container>
-          
+        <PaginationBar
+          total={popularMovies.results.length}
+          limit={limit}
+          page={page}
+          setPage={setPage}
+        />
       </div>
     </div>
   )

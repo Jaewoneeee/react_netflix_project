@@ -8,8 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const MovieCard = ({item}) => {
 
     const { genreList } = useSelector((state) => state.movies)
-    console.log(genreList)
-    console.log('여기보면',item)
+    // console.log(genreList)
+    // console.log('여기보면',item)
 
     const navigate = useNavigate()
 
