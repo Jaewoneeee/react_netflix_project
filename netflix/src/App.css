@@ -192,7 +192,20 @@ body {
 }
 
 .searchPage {
-    margin-top: 10vh;
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.moviesDropdown {
+    height: 150px;
+}
+
+.genreSearchButton{
+    margin-bottom: 10px;
 }
 
 .genreBadge {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { movieAction } from '../redux/actions/movieAction'
 import { useDispatch, useSelector } from 'react-redux'
 import { MoviesPagination, PaginationBar } from '../components/';
-import { Container, Row, Col, Dropdown, Badge, Button } from 'react-bootstrap'
+import { Container, Row, Col, Dropdown, Button } from 'react-bootstrap'
 import ClipLoader from "react-spinners/ClipLoader";
 
 
@@ -35,43 +35,36 @@ const Movies = () => {
     }) 
   }
   
-  console.log("이 배열에서 찾기", popularMovies.results) // sort에 따라 재정렬된 배열을 얻고싶음 
-  console.log("찍혀라얍 내림차순",sortNumber) // 인기순으로 정렬된 po~ 값
-  console.log("찍혀라얍 내림차순 배열",sortArray) // 인기순으로 정렬된 po~ 값
+  // console.log("이 배열에서 찾기", popularMovies.results) // sort에 따라 재정렬된 배열을 얻고싶음 
+  // console.log("찍혀라얍 내림차순",sortNumber) // 인기순으로 정렬된 po~ 값
+  // console.log("찍혀라얍 내림차순 배열",sortArray) // 인기순으로 정렬된 po~ 값
 
-  const [id, setId] = useState()
+  const [genreId, setGenreId] = useState()
   let genreArray = []
   {
     popularMovies.results.map((item) => {
       for(let i=0; i < item.genre_ids.length; i++){
 
-        if(item.genre_ids[i] == id)
+        if(item.genre_ids[i] == genreId)
         return genreArray.push(item)
       }
     })
   }
 
-  // let testArray = []
-  // {
-  //   genreArray.map((num) => {
-
-  //   })
-  // }
-
-  console.log("장르배열", genreArray)
+  // console.log("장르배열", genreArray)
 
   //========================= 정리하자
-  const [test, setTest] = useState(popularMovies.results)
+  const [moviesArray, setMoviesArray] = useState(popularMovies.results)
   
-  const change = () => {
-    setTest(popularMovies.results)
+  const sortPopularity = () => {
+    setMoviesArray(popularMovies.results)
   }
 
-  const change2 = () => {
-    setTest(sortArray)
+  const sortAudience = () => {
+    setMoviesArray(sortArray)
   }
-  const change3 = () => {
-    setTest(genreArray)
+  const genreSearch = () => {
+    setMoviesArray(genreArray)
     setVariant('dark')
   }
 
@@ -79,7 +72,7 @@ const Movies = () => {
 
   const genreClick = (id) => {
     console.log(id)
-    setId(id)
+    setGenreId(id)
     setVariant('danger')
   }
 
@@ -92,30 +85,32 @@ const Movies = () => {
   return (
     <div className='moviesPage'>
       <div className='moviesLeft'>
-      <Dropdown>
-        <Dropdown.Toggle variant="danger" id="dropdown-basic">
-          Filltering
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu variant="dark">
-          <Dropdown.Item href="#/action-1" onClick={()=>change()}>인기순</Dropdown.Item>
-          <Dropdown.Item href="#/action-2" onClick={()=>change2()}>관객순</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">장르순</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-      {
-        genreList.map((item) => {
-          return <Badge bg={variant} className='genreBadge' onClick={()=>genreClick(item.id)}>{item.name}</Badge>
-        })
-      }
-      <br/>
-      <Button variant='danger'  onClick={()=>change3()}>장르검색</Button>
+        <div className='moviesDropdown'>   
+          <Dropdown>
+            <Dropdown.Toggle variant="danger" id="dropdown-basic">
+              Filltering
+            </Dropdown.Toggle>
+            <Dropdown.Menu variant="dark">
+              <Dropdown.Item href="#/action-1" onClick={()=>sortPopularity()}>Popularity</Dropdown.Item>
+              <Dropdown.Item href="#/action-2" onClick={()=>sortAudience()}>Audience</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
+        <Button variant='danger' className="genreSearchButton" onClick={()=>genreSearch()}>GenreSearch</Button>
+        <div className='genreSearch'> 
+          {
+            genreList.map((item) => {
+              //return <Badge pill bg={variant} className='genreBadge' onClick={()=>genreClick(item.id)}>{item.name}</Badge>
+              return <Button size="sm" variant={variant} className='genreBadge' onClick={()=>genreClick(item.id)}>{item.name}</Button>
+            })
+          }
+        </div> 
       </div>
       <div className='moviesRight'>
         <Container>
           <Row>
           { 
-              test.slice(offset, offset + limit).map((item, index) => {
+              moviesArray.slice(offset, offset + limit).map((item, index) => {
               return <Col xs={6} key={index}>
                       <MoviesPagination item={item}/>
                     </Col>
@@ -124,7 +119,7 @@ const Movies = () => {
           </Row>
         </Container>
         <PaginationBar
-          total={test.length}
+          total={moviesArray.length}
           limit={limit}
           page={page}
           setPage={setPage}
