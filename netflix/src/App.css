@@ -152,19 +152,16 @@ body {
     width: 70vw;
     display: flex;
     justify-content: center;
-    border: 1px solid white;
 }
 
 .moviesLeft {
     width: 20vw;
     margin: 20px;
-    border: 1px solid white;
 }
 
 .moviesRight {
     width: 40vw;
     margin: 20px;
-    border: 1px solid white;
 }
 
 .moviesCard {
@@ -196,4 +193,8 @@ body {
 
 .searchPage {
     margin-top: 10vh;
+}
+
+.genreBadge {
+    margin: 10px;
 }

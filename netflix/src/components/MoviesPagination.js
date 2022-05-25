@@ -2,14 +2,14 @@ import React from 'react'
 import { Badge } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faUserGroup } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const MoviesPagination = ({item}) => {
 
     const { genreList } = useSelector((state) => state.movies)
-    console.log(genreList)
-    console.log('여기보면',item.id)
+    // console.log(genreList)
+    // console.log('여기보면',item.id)
 
     const navigate = useNavigate()
 
@@ -34,6 +34,9 @@ const MoviesPagination = ({item}) => {
                 <div>
                     <span><FontAwesomeIcon icon={faStar}/> : {item.vote_average} / </span>
                     <span style={{color : 'red', fontWeight : "bold", fontStyle: 'italic'}}>{item.adult ? "청불" : "Under18" }</span>
+                </div>
+                <div>
+                    <FontAwesomeIcon icon={faUserGroup}/> : {item.popularity}
                 </div>
             </div>
     </div>
