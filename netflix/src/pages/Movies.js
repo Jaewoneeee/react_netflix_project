@@ -108,6 +108,7 @@ const Movies = () => {
           return <Badge bg={variant} className='genreBadge' onClick={()=>genreClick(item.id)}>{item.name}</Badge>
         })
       }
+      <br/>
       <Button variant='danger'  onClick={()=>change3()}>장르검색</Button>
       </div>
       <div className='moviesRight'>
