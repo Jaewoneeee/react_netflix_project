@@ -10,16 +10,26 @@ const TrailerModal = (props) => {
     // const test = props.trailer[1]
     // console.log(test)
 
+    const opts = {
+        height: '400',
+        width: '765',
+        playerVars: {
+          // https://developers.google.com/youtube/player_parameters
+          autoplay: 1,
+        },
+      }
+
 
     return (
         <Modal
             {...props}
+            
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
             <Modal.Body>
-                <YouTube videoId={props.trailer[0].key} className='youtube'/>
+                <YouTube videoId={props.trailer[0].key}  opts={opts}/>
             </Modal.Body>
             {/* <Modal.Footer>
             <Button variant="dark" onClick={props.onHide}>Close</Button>

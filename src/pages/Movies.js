@@ -87,7 +87,7 @@ const Movies = () => {
       <div className='moviesLeft'>
         <div className='moviesDropdown'>   
           <Dropdown>
-            <Dropdown.Toggle variant="danger" id="dropdown-basic">
+            <Dropdown.Toggle>
               Filltering
             </Dropdown.Toggle>
             <Dropdown.Menu variant="dark">
