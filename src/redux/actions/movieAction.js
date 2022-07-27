@@ -7,7 +7,7 @@ function getMovies(search) {
         try{
             dispatch({type : "GET_MOVIES_REQUEST"})
 
-            console.log("여기 서치한거 찍히나?",search)
+            //console.log("여기 서치한거 찍히나?",search)
             const popularMovieApi = api.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
             //console.log(popularMovieApi.data.results)
     
@@ -26,11 +26,11 @@ function getMovies(search) {
             // 각각의 API호출을 동시에 실행시키고, 위 세개가 다 올때까지 기다리는거
             let [ popularMovies, topRatedMovies, upcomingMovies, genreList, test ] = await Promise.all([popularMovieApi, topRatedApi, upcomingApi, genreApi, testApi ])
             //console.log("Promise All 이후 : ", data)
-            console.log(popularMovies.data.results)
-            console.log(topRatedMovies.data.results)
-            console.log(upcomingMovies.data.results)
-            console.log(genreList)
-            console.log("api테스트", test)
+            //console.log(popularMovies.data.results)
+            //console.log(topRatedMovies.data.results)
+            //console.log(upcomingMovies.data.results)
+            //console.log(genreList)
+            //console.log("api테스트", test)
 
             dispatch({
                 type : "GET_MOVIE_SUCCESS",

@@ -71,12 +71,12 @@ const Movies = () => {
   const [variant, setVariant] = useState('dark')
 
   const genreClick = (id) => {
-    console.log(id)
+    //console.log(id)
     setGenreId(id)
     setVariant('danger')
   }
 
-  console.log("장르리스트",genreList)
+  //console.log("장르리스트",genreList)
 
   if(loading){
     return <ClipLoader color='#ffff' loading={loading} size={150} />

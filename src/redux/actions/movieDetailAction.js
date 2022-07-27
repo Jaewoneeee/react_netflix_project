@@ -6,7 +6,7 @@ function getDetailMoives(id) {
     return async (dispatch) => {
         try {
             dispatch({type : "GET_MOVIES_REQUEST"})
-            console.log("디테일페이지 잘옴", {id})
+            //console.log("디테일페이지 잘옴", {id})
 
             const DetailMoviesApi = api.get(`/movie/${id}?api_key=${API_KEY}&language=en-US`)
 
@@ -17,10 +17,10 @@ function getDetailMoives(id) {
             const Trailer = api.get(`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`)
      
             let [ detailMovieList, movieReviews, relatedMovies, trailer ] = await Promise.all([DetailMoviesApi, MovieReviews, RelatedMovies, Trailer])
-            console.log("무비디테일",detailMovieList.data)
-            console.log(movieReviews.data.results)
-            console.log('여기확인', relatedMovies.data)
-            console.log('트레일러', trailer.data.results)
+            //console.log("무비디테일",detailMovieList.data)
+            //console.log(movieReviews.data.results)
+            //console.log('여기확인', relatedMovies.data)
+            //console.log('트레일러', trailer.data.results)
 
             dispatch({
                 type : "GET_MOVIE_DETAIL_SUCCESS",

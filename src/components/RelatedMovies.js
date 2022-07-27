@@ -8,9 +8,9 @@ const RelatedMovies = ({related}) => {
 
   const navigate = useNavigate();
 
-    console.log("디테일",related)
-    console.log("디테일",related[0].backdrop_path)
-    console.log("디테일",related[0].id)
+    //console.log("디테일",related)
+    //console.log("디테일",related[0].backdrop_path)
+    //console.log("디테일",related[0].id)
 
 
   const showDetail = (id) => {

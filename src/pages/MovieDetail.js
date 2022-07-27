@@ -22,7 +22,7 @@ const MovieDetail = () => {
     dispatch(movieDetailAction.getDetailMoives(id))
   },[id]) 
 
-  console.log(relatedMovies)
+  //console.log(relatedMovies)
 
   // 이거를 적용하면 계속 이것만 돌고있음 왜 그럴까?
   if(loading){
@@ -32,7 +32,7 @@ const MovieDetail = () => {
   const changeShowMore = () => {
     showMore === false ? setShowMore(true) : setShowMore(false)
   }
-  console.log(showMore)
+  //console.log(showMore)
 
   const changeReview = () => {
     change ? setChange(false) : setChange(true)

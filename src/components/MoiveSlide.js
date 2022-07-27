@@ -24,7 +24,7 @@ const responsive = {
   };
 
 const MoiveSlide = ({movies}) => {
-    console.log(movies)
+    //console.log(movies)
   return (
     <div className='slide'>
         <Carousel responsive={responsive}>
